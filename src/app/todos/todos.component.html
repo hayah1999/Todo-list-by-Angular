@@ -1,0 +1,51 @@
+<div class="container" id="container">
+    <header>What's up, today!</header>
+    <div class="line"></div>
+    <h6>TODAY'S TASKS</h6>
+    <section class="tasks" id="tasks" *ngFor="let todo of list; let index = index;" >
+    <div class="taskCont" *ngIf="!this.todo.done">
+        <div class="task">
+        <div id="checkbox" (click)="check(index)">
+            <i class="fa-solid fa-check correct"></i>
+            </div>
+            <p id="text">{{this.todo.title}}</p>
+            <div class="del-edit">
+                <img src="../../assets/icons8-cancel-30.png" id="del" (click)="deleteTask(index)">
+            </div>
+        </div>
+    </div>
+
+    </section>
+  
+    <div class="completesection" id="completesection" *ngIf="isCompleted()">
+        <div class="line"></div>
+        <h6>COMPLETED TASKS</h6>
+        <section id="completedtasks"  *ngFor="let todo of list; let index = index;" >
+
+            <div class="taskCont" *ngIf="this.todo.done">
+                <div class="task checked">
+                <div id="checkbox" (click)="uncheck(index)">
+                    <i class="fa-solid fa-check correct" ></i>
+                    <img src="../../assets/icons8-done-18.png" id="correct">
+                    </div>
+                    <p id="text">{{this.todo.title}}</p>
+                    <div class="del-edit">
+                        <img src="../../assets/icons8-cancel-30.png" id="del" (click)="deleteTask(index)">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <div class="btns">
+        <input
+            [(ngModel)] ="title"
+            type="text"
+            id="newtask"
+            placeholder="Enter your new task"
+            required
+        />
+        <div id="btn" (click)="createTask()">+</div>
+    </div>
+  </div>
+  
