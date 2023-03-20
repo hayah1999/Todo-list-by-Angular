@@ -6,17 +6,21 @@
     <div class="taskCont" *ngIf="!this.todo.done">
         <div class="task">
         <div id="checkbox" (click)="check(index)">
-            <i class="fa-solid fa-check correct"></i>
+            <!-- <i class="fa-solid fa-check correct"></i> -->
+            <!-- <i class="bi bi-check2" id="correct"></i> -->
+
             </div>
             <p id="text">{{this.todo.title}}</p>
             <div class="del-edit">
-                <img src="../../assets/icons8-cancel-30.png" id="del" (click)="deleteTask(index)">
+                <!-- <img src="../../assets/icons8-cancel-30.png" id="del" (click)="deleteTask(index)"> -->
+                <!-- <i class="bi bi-trash3-fill"  id="del" (click)="deleteTask(index)"></i> -->
+                <i class="bi bi-trash-fill"  id="del" (click)="deleteTask(index)"></i>
             </div>
         </div>
     </div>
 
     </section>
-  
+
     <div class="completesection" id="completesection" *ngIf="isCompleted()">
         <div class="line"></div>
         <h6>COMPLETED TASKS</h6>
@@ -25,12 +29,15 @@
             <div class="taskCont" *ngIf="this.todo.done">
                 <div class="task checked">
                 <div id="checkbox" (click)="uncheck(index)">
-                    <i class="fa-solid fa-check correct" ></i>
-                    <img src="../../assets/icons8-done-18.png" id="correct">
+                    <!-- <i class="fa-solid fa-check correct" ></i> -->
+                    <!-- <img src="../../assets/icons8-done-18.png" id="correct"> -->
+                    <i class="bi bi-check2" id="correct"></i>
                     </div>
                     <p id="text">{{this.todo.title}}</p>
                     <div class="del-edit">
-                        <img src="../../assets/icons8-cancel-30.png" id="del" (click)="deleteTask(index)">
+                        <!-- <img src="../../assets/icons8-cancel-30.png" id="del" (click)="deleteTask(index)"> -->
+                        <!-- <i class="bi bi-trash3-fill" ></i> -->
+                        <i class="bi bi-trash-fill"  id="del" (click)="deleteTask(index)"></i>
                     </div>
                 </div>
             </div>
@@ -48,4 +55,3 @@
         <div id="btn" (click)="createTask()">+</div>
     </div>
   </div>
-  

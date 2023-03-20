@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 .container {
     margin-top: 2rem;
     display: flex;
@@ -35,7 +36,7 @@
     margin-left: 0.5rem;
     color: #f8f8ff;
   }
-  
+
   .tasks {
     display: flex;
     flex-direction: column;
@@ -52,7 +53,7 @@
     justify-content: left;
     align-items: center;
   }
-  
+
   .task {
     background-color: #041955;
     border-radius: 1rem;
@@ -65,7 +66,7 @@
     align-items: center;
     margin-bottom: 0.6rem;
   }
-  
+
   #checkbox {
     width: 1.2rem;
     height: 1.2rem;
@@ -78,7 +79,7 @@
     font-size: small;
     cursor: pointer;
   }
-  
+
   #checkbox > .correct {
     display: none;
   }
@@ -91,7 +92,7 @@
     font-size: 20px;
     margin-right: 2rem;
   }
-  
+
   .del-edit {
     width: 12%;
     display: flex;
@@ -101,6 +102,7 @@
   }
   #del {
     font-size: larger;
+    color: red;
     cursor:pointer;
   }
   .checked > #checkbox {
@@ -112,7 +114,7 @@
     text-decoration: line-through;
     text-decoration-thickness: 0.2px;
   }
-  
+
   .btns {
     display: flex;
     justify-content: space-between;
@@ -121,7 +123,7 @@
     padding-bottom: 0.4rem;
     padding-left: 1.3rem;
   }
-  
+
   #btn {
     width: 2rem;
     height: 2rem;
@@ -136,7 +138,7 @@
     color: #f8f8ff;
     cursor: pointer;
   }
-  
+
   #newtask {
     width: 70%;
     padding: 0.4rem;
@@ -146,7 +148,7 @@
   #newtask:focus {
     outline: none;
   }
-  
+
   @media screen and (max-width: 600px) {
     body {
         justify-content: center;
@@ -164,11 +166,11 @@
     #btn {
         font-size: medium;
     }
-  
+
     #newtask {
         width: 65%;
     }
-  
+
     #checkbox {
         margin-right: 0.2rem;
     }
@@ -177,9 +179,8 @@
         color: #f8f8ff;
         margin-right: 0.1rem;
     }
-  
+
     .del-edit {
         width: 14%;
     }
   }
-  
