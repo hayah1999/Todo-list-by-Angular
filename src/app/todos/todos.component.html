@@ -1,50 +1,38 @@
 <div class="container" id="container">
     <header>What's up, today!</header>
     <div class="line"></div>
+
+
+  <div *ngIf="currentUrl === 'todo'" class="todos">
     <h6>TODAY'S TASKS</h6>
-    <section class="tasks" id="tasks" *ngFor="let todo of list; let index = index;" >
-    <div class="taskCont" *ngIf="!this.todo.done">
-        <div class="task">
-        <div id="checkbox" (click)="check(index)">
-            <!-- <i class="fa-solid fa-check correct"></i> -->
-            <!-- <i class="bi bi-check2" id="correct"></i> -->
-
-            </div>
-            <p id="text">{{this.todo.title}}</p>
-            <div class="del-edit">
-                <!-- <img src="../../assets/icons8-cancel-30.png" id="del" (click)="deleteTask(index)"> -->
-                <!-- <i class="bi bi-trash3-fill"  id="del" (click)="deleteTask(index)"></i> -->
-                <i class="bi bi-trash-fill"  id="del" (click)="deleteTask(index)"></i>
-            </div>
-        </div>
-    </div>
-
+    <section class="tasks" id="tasks" *ngFor="let todo of list" >
+        <app-todo [todo]="todo"></app-todo>
     </section>
+  </div>
 
-    <div class="completesection" id="completesection" *ngIf="isCompleted()">
-        <div class="line"></div>
+
+    <div class="todos" *ngIf="currentUrl === 'done'">
         <h6>COMPLETED TASKS</h6>
-        <section id="completedtasks"  *ngFor="let todo of list; let index = index;" >
-
-            <div class="taskCont" *ngIf="this.todo.done">
-                <div class="task checked">
-                <div id="checkbox" (click)="uncheck(index)">
-                    <!-- <i class="fa-solid fa-check correct" ></i> -->
-                    <!-- <img src="../../assets/icons8-done-18.png" id="correct"> -->
-                    <i class="bi bi-check2" id="correct"></i>
-                    </div>
-                    <p id="text">{{this.todo.title}}</p>
-                    <div class="del-edit">
-                        <!-- <img src="../../assets/icons8-cancel-30.png" id="del" (click)="deleteTask(index)"> -->
-                        <!-- <i class="bi bi-trash3-fill" ></i> -->
-                        <i class="bi bi-trash-fill"  id="del" (click)="deleteTask(index)"></i>
-                    </div>
-                </div>
-            </div>
-
+        <section id="completedtasks"  *ngFor="let todo of done;" >
+         <app-done [todo]="todo"></app-done>
         </section>
     </div>
-    <div class="btns">
+
+    <div *ngIf="currentUrl === 'favorites'" class="todos">
+      <h6>FAVORITES TASKS</h6>
+      <section class="tasks" id="tasks" *ngFor="let todo of favorites" >
+          <app-favorite [todo]="todo"></app-favorite>
+      </section>
+    </div>
+
+    <div *ngIf="currentUrl === 'deleted'" class="todos">
+      <h6>DELETED TASKS</h6>
+      <section class="tasks" id="tasks" *ngFor="let todo of favorites" >
+          <app-deleted [todo]="todo"></app-deleted>
+      </section>
+    </div>
+
+    <div class="btns" *ngIf="currentUrl === 'todo'">
         <input
             [(ngModel)] ="title"
             type="text"

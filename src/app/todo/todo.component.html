@@ -1,0 +1,10 @@
+<div class="taskCont" *ngIf="!this.todo.done && !this.todo.deleted">
+  <div class="task">
+  <div id="checkbox" (click)="check()">
+      </div>
+      <p id="text">{{this.todo.title}}</p>
+      <div class="del-edit">
+          <i class="bi bi-trash-fill"  id="del" (click)="deleteTask()"></i>
+      </div>
+  </div>
+</div>
