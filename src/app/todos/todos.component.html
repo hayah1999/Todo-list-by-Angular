@@ -13,7 +13,7 @@
 
     <div class="todos" *ngIf="currentUrl === 'done'">
         <h6>COMPLETED TASKS</h6>
-        <section id="completedtasks"  *ngFor="let todo of done;" >
+        <section class="tasks" id="tasks" *ngFor="let todo of done;" >
          <app-done [todo]="todo"></app-done>
         </section>
     </div>
@@ -27,7 +27,7 @@
 
     <div *ngIf="currentUrl === 'deleted'" class="todos">
       <h6>DELETED TASKS</h6>
-      <section class="tasks" id="tasks" *ngFor="let todo of favorites" >
+      <section class="tasks" id="tasks" *ngFor="let todo of deleted" >
           <app-deleted [todo]="todo"></app-deleted>
       </section>
     </div>
@@ -40,6 +40,6 @@
             placeholder="Enter your new task"
             required
         />
-        <div id="btn" (click)="createTask()">+</div>
+        <div id="btn" (click)="createTask()"><i class="bi bi-plus"></i></div>
     </div>
   </div>

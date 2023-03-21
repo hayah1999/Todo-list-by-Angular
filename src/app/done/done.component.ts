@@ -21,11 +21,14 @@ export class DoneComponent implements OnInit {
   constructor(private _todos: TodosServiceService) {
   }
 
-  uncheck() {
-    this._todos.uncheck(this.todo.id);
-  }
+  // uncheck() {
+  //   this._todos.uncheck(this.todo.id);
+  // }
   deleteTask() {
     this._todos.deleteTask(this.todo.id);
+  }
+  favoriteTask(){
+    this._todos.favoriteTask(this.todo.id);
   }
   ngOnInit(): void {
 

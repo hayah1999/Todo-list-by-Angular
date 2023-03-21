@@ -21,13 +21,5 @@ export class DeletedComponent implements OnInit {
   constructor(private _todos: TodosServiceService) {
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
-  uncheck() {
-    this._todos.uncheck(this.todo.id);
-  }
-  deleteTask() {
-    this._todos.deleteTask(this.todo.id);
   }
 }

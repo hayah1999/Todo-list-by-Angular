@@ -25,6 +25,7 @@
   .line {
     margin-left: 0.5rem;
     margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
     width: 93%;
     height: 2px;
     background-color: #00b4d8;
@@ -37,15 +38,15 @@
     color: #f8f8ff;
   }
 
-  .tasks {
+  .todos{
+   width: 100%;
+  }
+  /* .tasks {
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: center;
-  }
-  .taskCont{
-   width:100%;
-  }
+  } */
 
   #completedtasks {
     display: flex;
@@ -132,14 +133,14 @@
     height: 2rem;
     border-radius: 50%;
     border: none;
+    font-size: 32px;
+    background-color: #ff7096;
+    color: #f8f8ff;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    font-size: 42px;
-    background-color: #ff7096;
-    color: #f8f8ff;
-    cursor: pointer;
   }
 
   #newtask {
@@ -166,9 +167,7 @@
         padding-left: 0.2rem;
         padding: right 0.2rem;
     }
-    #btn {
-        font-size: medium;
-    }
+    
 
     #newtask {
         width: 65%;

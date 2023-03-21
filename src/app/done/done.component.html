@@ -1,10 +1,11 @@
 <div class="taskCont" *ngIf="this.todo.done && !this.todo.deleted">
   <div class="task checked">
-  <div id="checkbox" (click)="uncheck()">
+  <div id="checkbox">
       <i class="bi bi-check2" id="correct"></i>
       </div>
       <p id="text">{{this.todo.title}}</p>
       <div class="del-edit">
+          <i class="bi bi-suit-heart"  (click)="favoriteTask()"></i>
           <i class="bi bi-trash-fill"  id="del" (click)="deleteTask()"></i>
       </div>
   </div>

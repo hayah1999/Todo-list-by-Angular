@@ -42,7 +42,9 @@ export class TodosServiceService {
   favoriteTask(id: Guid) {
     let todo: Todo = this.todos.filter((obj: Todo) => obj.id == id)[0];
     todo.isFavorite = true;
-    this.favorites.push(todo);
+    if (!this.favorites.filter((obj: Todo) => obj.id == id)[0]) {
+      this.favorites.push(todo);
+    }
   }
   isCompleted(): boolean {
     let status: boolean = false;
@@ -52,5 +54,24 @@ export class TodosServiceService {
     return status;
   }
 
+
+  getTodoCount(): number{
+    return this.todos.filter((obj : Todo) => !obj.done && !obj.deleted).length;
+  }
+
+  getDoneCount(): number{
+    return this.todos.filter((obj : Todo) => obj.done && !obj.deleted).length;
+  }
+
+  getFavCount(): number{
+    return this.todos.filter((obj : Todo) => obj.isFavorite && !obj.deleted).length;
+  }
+
+  getDelCount(): number{
+    return this.todos.filter((obj : Todo) => obj.deleted).length;
+  }
+  getTotalCount() : number {
+    return  this.todos.filter((obj : Todo) => !obj.deleted).length;
+  }
 
 }

@@ -1,11 +1,9 @@
-.tasks {
+
+.taskCont{
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: center;
-}
-.taskCont{
- width:100%;
 }
 
 #completedtasks {
@@ -48,9 +46,13 @@
   display: block;
 }
 .checked > #checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #5382a6;
   color: #f8f8ff;
   border: none;
+  font-size: 20px;
 }
 .checked > #text {
   text-decoration: line-through;
@@ -61,6 +63,7 @@
   width: 63%;
   color: #f8f8ff;
   font-size: 20px;
+  margin-top: 0.8rem;
   margin-right: 2rem;
 }
 

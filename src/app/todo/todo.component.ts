@@ -28,6 +28,9 @@ export class TodoComponent implements OnInit {
   deleteTask() {
     this._todos.deleteTask(this.todo.id);
   }
+  favoriteTask(){
+    this._todos.favoriteTask(this.todo.id);
+  }
   ngOnInit(): void {
 
   }
