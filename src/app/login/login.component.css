@@ -1,0 +1,12 @@
+.warn{
+  color: red;
+}
+
+#btn {
+  margin-top: 10px;
+  border: none;
+  border-radius: 5%;
+  padding: 5px;
+  color: white;
+  background-color: darkslateblue;
+}

@@ -16,14 +16,15 @@ export class DoneComponent implements OnInit {
     done : false,
     isFavorite :  false,
     deleted :  false,
+    userId : Guid.create()
   };
 
   constructor(private _todos: TodosServiceService) {
   }
 
-  // uncheck() {
-  //   this._todos.uncheck(this.todo.id);
-  // }
+  uncheck() {
+    this._todos.uncheck(this.todo.id);
+  }
   deleteTask() {
     this._todos.deleteTask(this.todo.id);
   }

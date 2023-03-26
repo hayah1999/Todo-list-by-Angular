@@ -16,16 +16,13 @@ export class FavoriteComponent implements OnInit {
     done : false,
     isFavorite :  false,
     deleted :  false,
+    userId : Guid.create()
   };
 
   constructor(private _todos: TodosServiceService) {
   }
-
-  uncheck() {
-    this._todos.check(this.todo.id);
-  }
-  deleteTask() {
-    this._todos.deleteTask(this.todo.id);
+  unFavorite(){
+    this._todos.unFavorite(this.todo.id)
   }
   ngOnInit(): void {
 

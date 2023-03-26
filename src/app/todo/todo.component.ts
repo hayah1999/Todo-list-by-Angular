@@ -17,6 +17,7 @@ export class TodoComponent implements OnInit {
     done : false,
     isFavorite :  false,
     deleted :  false,
+    userId : Guid.create()
   };
 
   constructor(private _todos: TodosServiceService) {

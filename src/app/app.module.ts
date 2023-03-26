@@ -11,6 +11,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DoneComponent } from './done/done.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { DeletedComponent } from './deleted/deleted.component';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,15 @@ import { DeletedComponent } from './deleted/deleted.component';
     NotFoundComponent,
     DoneComponent,
     FavoriteComponent,
-    DeletedComponent
+    DeletedComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,6 +17,8 @@ export class TodosComponent {
   deleted: Todo[] = [];
   favorites: Todo[] = [];
   currentUrl: string;
+  username: string = "";
+  quote: string = "";
   constructor(private _todos: TodosServiceService, private _activatedRoute: ActivatedRoute) {
     this.list = this._todos.todos;
     this.done = this._todos.done;
@@ -33,7 +35,25 @@ export class TodosComponent {
   }
 
   isCompleted() {
-     return this._todos.isCompleted();
+    return this._todos.isCompleted();
+  }
+
+  getUserName() {
+    let user: any = localStorage.getItem("currentUser");
+    user = JSON.parse(user);
+    if (user) {
+      this.username = user.username;
+    }
+    return this.username;
+  }
+
+  getFavQuote(){
+    let user: any = localStorage.getItem("currentUser");
+    user = JSON.parse(user);
+    if (user) {
+      this.quote = user.quote;
+    }
+    return this.quote;
   }
 
 }

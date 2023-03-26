@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 import { TodosServiceService } from '../todos-service.service';
 
 @Component({
@@ -7,8 +8,11 @@ import { TodosServiceService } from '../todos-service.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
-
-  constructor(private _todos: TodosServiceService) { }
+  isLogged = true;
+  username: string = "";
+  constructor(private _todos: TodosServiceService, private _auth: AuthService ) {
+    this._auth.isLogged$.subscribe((res) => this.isLogged = res);
+  }
 
   getTodosCount() {
     return this._todos.getTodoCount();
@@ -20,10 +24,22 @@ export class NavBarComponent {
     return this._todos.getDelCount();
   }
   getDoneCount() {
-    let percentage: number =  parseInt(((this._todos.getDoneCount() / this._todos.getTotalCount()) * 100).toFixed(0));
-    if(isNaN(percentage)){
+    let percentage: number = parseInt(((this._todos.getDoneCount() / this._todos.getTotalCount()) * 100).toFixed(0));
+    if (isNaN(percentage)) {
       return 0;
     }
     return percentage;
+  }
+  logOut() {
+    this._auth.change();
+    localStorage.removeItem("currentUser");
+  }
+  getCurrentUser() {
+    let user: any = localStorage.getItem("currentUser");
+    user = JSON.parse(user);
+    if (user) {
+      this.username = user.username;
+    }
+    return this.username;
   }
 }

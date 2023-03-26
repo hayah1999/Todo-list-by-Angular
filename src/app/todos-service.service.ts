@@ -15,8 +15,12 @@ export class TodosServiceService {
 
   createTask(title: string) {
     if (!(title == "" || title === " ")) {
-      this.todos.push({ id: Guid.create(), title, done: false, isFavorite: false, deleted: false })
-      console.log(this.todos)
+      let user : any = localStorage.getItem("currentUser");
+      user = JSON.parse(user)
+      if(user){
+        this.todos.push({ id: Guid.create(), title, done: false, isFavorite: false, deleted: false, userId : user.id })
+        console.log(this.todos)
+      }
     }
   }
 
@@ -36,7 +40,8 @@ export class TodosServiceService {
     if (this.todos.length) {
       let todo: Todo = this.todos.filter((obj: Todo) => obj.id == id)[0];
       todo.done = false;
-      this.todos.push(todo);
+      let index = this.done.findIndex((obj) => obj.id == id);
+      this.done.splice(index,1);
     }
   }
   favoriteTask(id: Guid) {
@@ -44,6 +49,14 @@ export class TodosServiceService {
     todo.isFavorite = true;
     if (!this.favorites.filter((obj: Todo) => obj.id == id)[0]) {
       this.favorites.push(todo);
+    }
+  }
+  unFavorite(id: Guid) {
+    if (this.todos.length) {
+      let todo: Todo = this.todos.filter((obj: Todo) => obj.id == id)[0];
+      todo.isFavorite = false;
+      let index = this.favorites.findIndex((obj) => obj.id == id);
+      this.favorites.splice(index,1);
     }
   }
   isCompleted(): boolean {

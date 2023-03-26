@@ -6,4 +6,5 @@ export type Todo = {
   done : boolean
   isFavorite : boolean
   deleted : boolean
+  userId : Guid
 }
