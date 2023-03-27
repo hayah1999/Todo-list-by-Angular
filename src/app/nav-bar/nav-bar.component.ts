@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { TodosServiceService } from '../todos-service.service';
 
@@ -10,7 +11,7 @@ import { TodosServiceService } from '../todos-service.service';
 export class NavBarComponent {
   isLogged = true;
   username: string = "";
-  constructor(private _todos: TodosServiceService, private _auth: AuthService ) {
+  constructor(private _todos: TodosServiceService, private _auth: AuthService, private _router : Router ) {
     this._auth.isLogged$.subscribe((res) => this.isLogged = res);
   }
 
@@ -33,6 +34,7 @@ export class NavBarComponent {
   logOut() {
     this._auth.change();
     localStorage.removeItem("currentUser");
+    this._router.navigate(['/login']);
   }
   getCurrentUser() {
     let user: any = localStorage.getItem("currentUser");
